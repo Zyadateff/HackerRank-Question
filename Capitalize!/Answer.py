@@ -6,8 +6,16 @@ import random
 import re
 import sys
 def solve(s):
-    return s.title()
-
+    ans = ""
+    for i in range(len(s)):
+        if i == 0 and s[i].isalpha():
+            ans += s[i].upper()
+            continue
+        if s[i - 1] == ' ' and s[i].isalpha():
+            ans += s[i].upper()
+            continue
+        ans += s[i]
+    return ans
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
